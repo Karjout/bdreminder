@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+import React,{useState} from 'react';
+import data from './data';
+import List from './List';
+import { AiFillGithub ,AiFillFacebook} from 'react-icons/all';
 import './App.css';
 
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [people,setPeople]=useState(data);
+  
+ return  <main>
+      <section className='container'>
+        <h3  className='center'>{people.length} BirthDays Today</h3>
+        <List people={people} />
+        <button onClick={()=>setPeople([])}>Clear All</button>
+      </section>
+      <footer className='footer'>
+        |  <h4 > <a href='https://github.com/Karjout'>Github<AiFillGithub/></a></h4>
+       
+        |  <h4 ><a href="https://www.facebook.com/Akarjout/">Facebook <AiFillFacebook /></a></h4>
+        <h5>Made By Karjout Adeslam</h5>
+      </footer>
+   </main>;
+
+
 }
 
 export default App;
